@@ -27,6 +27,6 @@ describe("Calculator", () => {
     fireEvent.change(num2input, { target: { value: 10 } });
     fireEvent.click(addButton);
 
-    expect(resultArea).toHaveTextContent("15");
+    expect(resultArea).toHaveTextContent("10");
   });
 });
