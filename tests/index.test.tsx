@@ -14,4 +14,19 @@ describe("Calculator", () => {
     expect(screen.getByTestId("multiply")).toBeInTheDocument();
     expect(screen.getByTestId("divide")).toBeInTheDocument();
   });
+
+  it("adds numbers", () => {
+    render(<Home />);
+    // check if the numbers add properly
+    const num1input = screen.getByTestId("num1");
+    const num2input = screen.getByTestId("num2");
+    const addButton = screen.getByTestId("add");
+    const resultArea = screen.getByTestId("result");
+
+    fireEvent.change(num1input, { target: { value: 5 } });
+    fireEvent.change(num2input, { target: { value: 10 } });
+    fireEvent.click(addButton);
+
+    expect(resultArea).toHaveTextContent("15");
+  });
 });
